@@ -16,5 +16,13 @@ namespace BussinessLayer.DataAccess
         {
 
         }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseLazyLoadingProxies()
+                .UseSqlServer(@"Server=DESKTOP-E57GMEU\SQLEXPRESS;Database=CodeFirstEFCoreDb;Trusted_Connection=True;");
+
+            base.OnConfiguring(optionsBuilder);
+        }
     }
 }

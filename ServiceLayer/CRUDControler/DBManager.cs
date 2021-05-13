@@ -21,14 +21,18 @@ namespace ServiceLayer.CRUDControler
 
         static DBManager()
         {
+            context = new GolfContext();
             courseRepository = new CourseRepository(context);
             holeRepository = new HoleRepository(context);
             playerRepository = new PlayerRepository(context);
             finder = new DBFinder(context);
         }
 
-        public static string Run(ModelType modelType, OperationType operationType, params object[] args)
+        public static string Run(ModelType modelType, OperationType operationType, params object[] args)            
         {
+           //Reloads the context, to not get errors from entity tracking
+            context = new GolfContext();
+
             if (operationType == OperationType.FindTotal)
             {
                 return FindTotal(int.Parse(args[0].ToString()));
@@ -37,6 +41,8 @@ namespace ServiceLayer.CRUDControler
             {
                 return FindAverage();
             }
+
+
 
             if (modelType == ModelType.Course)
             {

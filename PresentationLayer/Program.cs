@@ -11,9 +11,9 @@ namespace PresentationLayer
         {
             string[] inputArray;
             string inputString;
-            bool flag = true;
+            bool flag = true; //for exiting
             string message;
-            int[] helper1, helper2;
+            int[] helper1, helper2; //for getting many ids in many-to-many connections
 
             do
             {

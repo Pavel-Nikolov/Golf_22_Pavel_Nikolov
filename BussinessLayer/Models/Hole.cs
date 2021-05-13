@@ -14,7 +14,7 @@ namespace BussinessLayer.Models
         [Range(0, int.MaxValue)]
         public int Length { get; set; }
         [Range(0, int.MaxValue)]
-        public int Par { get; set; }
+        public int Par { get; set; } //The ammount of shots, allowed for the hole
         [Required]
         public virtual Course Course { get; set; }
 
